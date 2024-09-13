@@ -1,0 +1,162 @@
+.main-ClEn {
+   font-size: 18px;
+   font-weight: 400;
+   padding: 40px;
+   height: 539px;
+   width: 872px;
+   background-color: #fff;
+   border-radius: 30px;
+
+   h2 {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 0;
+   }
+
+   p {
+      margin-bottom: 20px;
+   }
+
+   button {
+      width: 125px;
+      height: 49px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 25px;
+      cursor: pointer;
+      padding: 8px 21px;
+      margin-top: 15px;
+      color: white;
+      background-color: #797ef3;
+      border: 2px solid #797ef3;
+
+      &:hover {
+         background-color: rgba(68, 77, 242, 1);
+         border: 2px solid rgba(68, 77, 242, 1);
+      }
+   }
+
+   @media (max-width: 1000px) {
+      height: 100vh;
+      width: 100%;
+      border-radius: 0;
+   }
+}
+
+.div-button {
+   display: flex;
+   justify-content: flex-end;
+}
+
+.warning-name {
+   border: none;
+   color: red;
+   padding: 0;
+   font-size: 16px;
+   margin-top: -10px;
+   margin-bottom: 10px;
+   text-align: center;
+}
+
+.disabled-btn {
+   cursor: not-allowed;
+   opacity: 0.6;
+   pointer-events: none;
+}
+
+.header-ClEn {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin-bottom: 20px;
+
+   img:hover {
+      cursor: pointer;
+   }
+}
+
+.success-message {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: green;
+   font-weight: bold;
+   margin-top: 13px;
+}
+
+.div-ClName {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   margin-bottom: 20px;
+
+   label {
+      font-size: 18px;
+      font-weight: 600;
+   }
+
+   div {
+      border: 1px solid rgba(173, 176, 217, 1);
+      border-radius: 30px;
+      padding: 14px 16px;
+      width: 100%;
+      font-size: 18px;
+      font-weight: 400;
+
+      &:focus-within {
+         border-color: rgba(68, 77, 242, 1);
+      }
+   }
+
+   input {
+      margin: 0 0.5rem;
+      width: 92%;
+      border: unset;
+      outline: unset;
+      font-size: 18px;
+      font-weight: 400;
+   }
+}
+
+.d-none {
+   display: none;
+}
+
+.div-ClBeschreibung {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   margin-bottom: 20px;
+
+   label {
+      font-size: 18px;
+      font-weight: 600;
+   }
+
+   span {
+      font-size: 18px;
+      font-weight: 400;
+   }
+
+   div {
+      border: 1px solid rgba(173, 176, 217, 1);
+      border-radius: 30px;
+      padding: 14px 16px;
+      width: 100%;
+      font-size: 18px;
+      font-weight: 400;
+
+      &:focus-within {
+         border-color: rgba(68, 77, 242, 1);
+      }
+   }
+
+   input {
+      margin: 0 0.5rem;
+      width: 92%;
+      border: unset;
+      outline: unset;
+      font-size: 18px;
+      font-weight: 400;
+   }
+}

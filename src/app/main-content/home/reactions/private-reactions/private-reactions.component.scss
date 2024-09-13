@@ -1,0 +1,72 @@
+section {
+   display: flex;
+
+   .emote-wrapper {
+      position: relative;
+   }
+
+   .emote-counter {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      border: 1px solid #adb0d9;
+      border-radius: 20px;
+      padding: 5px 10px;
+      cursor: pointer;
+      margin-right: 5px;
+      margin-left: 5px;
+      background-color: white;
+   }
+
+   .counter {
+      margin: 0;
+      align-self: center;
+   }
+
+   .add-reaction-icon {
+      background-image: url("../../../../../public/img/icons/add_reaction.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 24px;
+      height: 24px;
+      align-self: center;
+
+      &:hover {
+         background-image: url("../../../../../public/img/icons/add_reaction_hover.png");
+         cursor: pointer;
+      }
+   }
+
+   .menu-content {
+      display: flex;
+      flex-direction: column;
+   }
+
+   .menu-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+   }
+}
+
+::ng-deep .mat-mdc-menu-panel {
+   min-width: 0 !important;
+   width: auto !important;
+}
+
+.hover-users {
+   bottom: 60px;
+   position: absolute;
+   background: rgb(83, 90, 241);
+   color: white;
+   padding: 5px;
+   border-radius: 5px;
+   z-index: 1000;
+
+   p {
+      margin-bottom: 3px;
+      margin-top: 3px;
+      margin-left: 3px;
+      margin-right: 3px;
+   }
+}

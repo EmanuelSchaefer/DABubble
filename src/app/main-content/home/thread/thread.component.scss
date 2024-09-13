@@ -1,0 +1,77 @@
+section {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   width: 500px;
+
+   @media (max-width: 1000px) {
+      width: 100vw;
+   }
+
+   .posts-area {
+      overflow-y: auto;
+      flex: 1;
+
+      &::-webkit-scrollbar {
+         display: none;
+      }
+   }
+
+   header {
+      display: flex;
+      justify-content: space-between;
+      height: 10%;
+      box-shadow: 0 4px 4px #9e9d9d1a;
+      padding: 32px 40px;
+
+      p {
+         margin: 0;
+      }
+
+      .thread {
+         font-size: 24px;
+         font-weight: 700;
+      }
+
+      .channel {
+         display: flex;
+         gap: 5px;
+      }
+
+      img {
+         width: 24px;
+         height: 24px;
+         cursor: pointer;
+      }
+   }
+
+   .answer-count-line {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+
+      .answer-count {
+         color: #adb0d9;
+      }
+
+      .line {
+         display: flex;
+         flex-direction: column;
+         align-self: center;
+         flex: 1;
+         border-bottom: 1px solid #adb0d9;
+         color: #adb0d9;
+      }
+   }
+
+   .body-container {
+      display: flex;
+      height: 90%;
+      flex-direction: column;
+      // padding: 32px 40px;
+   }
+
+   @media (max-width: 1000px) {
+      width: 100%;
+   }
+}

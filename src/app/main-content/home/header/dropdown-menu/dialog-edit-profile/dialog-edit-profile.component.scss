@@ -1,0 +1,188 @@
+mat-card {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   padding: 45px 40px 45px 40px;
+   box-sizing: border-box;
+   width: 500px;
+   height: fit-content;
+   gap: 38px;
+
+   @media (max-height: 1000px) {
+      gap: 8px;
+   }
+
+   .fs-32 {
+      font-size: 32px;
+   }
+
+   .fs-20 {
+      font-size: 20px;
+      font-weight: 700;
+   }
+
+   .fs-18 {
+      font-size: 18px;
+   }
+
+   button {
+      color: #535af1;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+   }
+
+   .header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 24px;
+
+      img {
+         width: 24px;
+         height: 24px;
+
+         &:hover {
+            cursor: pointer;
+            scale: 1.05;
+         }
+      }
+   }
+
+   .image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      img {
+         width: 200px;
+         height: 200px;
+         border-radius: 50%;
+
+         @media (max-width: 700px) {
+            width: 150px;
+            height: 150px;
+         }
+      }
+   }
+
+   .btn-style {
+      color: white;
+      font-size: 24px;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 50px;
+      background-color: #797ef3;
+
+      &:hover {
+         background-color: #535af1;
+      }
+
+      @media (max-width: 700px) {
+         font-size: 18px;
+      }
+   }
+
+   .name {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 15px;
+
+      .username-container {
+         display: flex;
+         gap: 20px;
+      }
+   }
+
+   .email-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .email {
+         display: flex;
+         gap: 20px;
+      }
+   }
+
+   input {
+      width: 100%;
+      border-radius: 30px;
+      border: 1px solid gray;
+      padding: 15px 20px;
+
+      &:focus {
+         outline: none;
+         border: 1px solid #9747ff;
+      }
+   }
+
+   mat-card-actions {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+
+      button {
+         width: 141px;
+         height: 49px;
+         border-radius: 50px;
+         border: 1px solid #797ef3;
+         padding: 12px 25px;
+      }
+
+      .save-btn {
+         background-color: #797ef3;
+         color: white;
+
+         &:not(:disabled):hover {
+            background-color: #444df2;
+         }
+
+         &:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+         }
+      }
+
+      @media (max-width: 800px) {
+         gap: 8px;
+
+         button {
+            width: fit-content;
+         }
+      }
+   }
+
+   .input-container {
+      margin-bottom: 16px;
+   }
+
+   .custom-input.invalid {
+      border-color: red;
+   }
+
+   .error {
+      color: red;
+      font-size: 14px;
+   }
+
+   .error-msg-container {
+      padding: 10px;
+   }
+
+   @media (max-width: 800px) {
+      display: flex;
+      left: -33px;
+      top: -8px;
+      border-radius: 0px;
+      height: 100vh;
+      width: 133%;
+      padding: 25px 8px 25px 8px;
+   }
+
+   @media (max-width: 500px) {
+      left: 0;
+      width: 100vw;
+   }
+}

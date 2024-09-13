@@ -1,0 +1,30 @@
+@if(showAnimation || showLogoInCorner) {
+<div id="bgc" class="bgc"></div>
+}
+<div class="content">
+   @if(showAnimation || showLogoInCorner) {
+   <div id="animation-background" [ngClass]="{ 'corner-logo': showLogoInCorner }">
+      <div class="logo-container">
+         <img src="./public/img/Logo.png" alt="Logo" />
+         <span id="dabubble">DABubble</span>
+      </div>
+   </div>
+   }
+   <div class="content-container-auth">
+      <router-outlet></router-outlet>
+   </div>
+   @if (router.url == '/login') {
+   <div class="register-container-desktop">
+      <p>Neu bei DaBubble?</p>
+      <a [routerLink]="['/register-user']">Konto erstellen</a>
+   </div>
+   <div class="register-container-mobile">
+      <p>Neu bei DaBubble?</p>
+      <a [routerLink]="['/register-user']">Konto erstellen</a>
+   </div>
+   }
+   <div class="links" #linksContainer>
+      <a [routerLink]="['/impressum']">Impressum</a>
+      <a [routerLink]="['/datenschutz']">Datenschutz</a>
+   </div>
+</div>

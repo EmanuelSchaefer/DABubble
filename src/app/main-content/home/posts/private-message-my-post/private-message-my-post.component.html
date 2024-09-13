@@ -1,0 +1,85 @@
+<section (mouseover)="showIcons()" (mouseout)="hideIcons()">
+   <div *ngIf="message">
+      <div class="parting-line">
+         <div class="line"></div>
+         <div class="timestamp-container">{{ formattedDate }}</div>
+      </div>
+      <div>
+         <div class="functionsIconsDiv" *ngIf="showIconsDiv">
+            <img
+               src="public/img/icons/add_reaction.png"
+               (mouseenter)="changeImage($event, 'public/img/icons/add reaction.png')"
+               (mouseleave)="resetImage($event, 'public/img/icons/add_reaction.png')"
+               (click)="toggleEmojiPicker()"
+            />
+            <div *ngIf="showEmojiPicker" class="overlay" (click)="closeEmojiPicker($event)">
+               <div class="emoji-picker">
+                  <div *ngFor="let emote of emotes" class="emoji-item" (click)="handleEmoteClick(emote)">
+                     <img [src]="emote" alt="emote" />
+                  </div>
+               </div>
+            </div>
+            <img
+               (click)="toggleDiv()"
+               src="public/img/icons/more_vert.png"
+               (mouseenter)="changeImage($event, 'public/img/icons/option.png')"
+               (mouseleave)="resetImage($event, 'public/img/icons/more_vert.png')"
+            />
+            <img
+               src="public/img/icons/comment.png"
+               (mouseenter)="changeImage($event, 'public/img/icons/Answer.png')"
+               (mouseleave)="resetImage($event, 'public/img/icons/comment.png')"
+               (click)="openThread()"
+            />
+         </div>
+         <div class="bearbeitenDiv" [ngClass]="{ 'd-none': isDivHidden }" *ngIf="showIconsDiv">
+            <button (click)="editMessage()">Nachricht bearbeiten</button>
+         </div>
+         <div class="bgHover">
+            <div class="profile">
+               <div class="text-container">
+                  <div class="info-container">
+                     <span class="time">{{ formattedTime }}</span>
+                     <span class="name" (click)="selectProfile(message.userName)">{{ message.userName }}</span>
+                  </div>
+                  <div class="align-right bg-color" [ngClass]="{ editing: isEditing }">
+                     <article *ngIf="!isEditing">{{ message.text }}</article>
+                     <div *ngIf="isEditing">
+                        <textarea [(ngModel)]="editedMessage"></textarea>
+                        <div class="buttonDiv">
+                           <button class="abbrechenB" (click)="cancelEdit()">Abbrechen</button>
+                           <button class="speichernB" (click)="saveEdit()">Speichern</button>
+                        </div>
+                     </div>
+                     <div *ngIf="message.files && message.files.length > 0" class="file-previews">
+                        <div *ngFor="let file of message.files" class="file-preview" (click)="openFile(file)">
+                           <img class="preview-img" *ngIf="file.type.startsWith('image/')" [src]="file.url" alt="Image preview" />
+                           <a *ngIf="file.type === 'application/pdf'" [href]="file.url" target="_blank">
+                              <div class="pdf-file-container">
+                                 <img src="./public/img/icons/pdf_icon.png" alt="PDF File" />
+                                 <p>{{ file.name }}</p>
+                              </div>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="repliesContainer">
+                     <div class="reactions" *ngIf="hasReactions() && isThreadContext">
+                        <app-private-reactions [message]="message"></app-private-reactions>
+                     </div>
+                     <div class="answers-info" *ngIf="message.answers && message.answers.length > 0">
+                        <span class="answer-count" (click)="openThread()">
+                           {{ message.answers.length }}
+                           <ng-container *ngIf="message.answers.length > 1">Antworten</ng-container>
+                           <ng-container *ngIf="message.answers.length === 1">Antwort</ng-container>
+                        </span>
+                        <span class="reply-time" *ngIf="message.answers && message.answers.length > 0"> Letzte Antwort {{ this.formattedLastAnswerTime }} </span>
+                     </div>
+                  </div>
+               </div>
+               <img class="img-profil" [src]="message.profilePicture || './public/img/profile-pics-register/avatar_default.png'" alt="profil-pic" />
+            </div>
+         </div>
+      </div>
+   </div>
+</section>

@@ -1,0 +1,136 @@
+section {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   padding: 45px 40px 45px 40px;
+   box-sizing: border-box;
+   width: 500px;
+   height: 705px;
+   gap: 38px;
+
+   .fs-32 {
+      font-size: 32px;
+   }
+
+   .fs-20 {
+      font-size: 20px;
+   }
+
+   .fs-18 {
+      font-size: 18px;
+   }
+
+   button {
+      color: #535af1;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+   }
+
+   .header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 24px;
+
+      img {
+         width: 24px;
+         height: 24px;
+
+         &:hover {
+            cursor: pointer;
+            scale: 1.05;
+         }
+      }
+   }
+
+   .image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+         width: 200px;
+         height: 200px;
+         border-radius: 50%;
+      }
+   }
+
+   .name {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 15px;
+
+      .username-container {
+         display: flex;
+         justify-content: space-between;
+
+         @media (max-width: 600px) {
+            gap: 8px;
+         }
+      }
+
+      .user-status {
+         display: flex;
+         align-items: baseline;
+         gap: 15px;
+         color: #92c83e;
+
+         .offline-color {
+            color: #686868 !important;
+         }
+      }
+   }
+
+   .email-container {
+      display: flex;
+      align-items: flex-start;
+      width: 50%;
+      gap: 20px;
+
+      .email {
+         display: flex;
+         flex-direction: column;
+         gap: 20px;
+      }
+
+      @media (max-width: 600px) {
+         width: 100%;
+      }
+   }
+
+   .send-message-button {
+      width: 164px;
+      height: 49px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+      border-radius: 50px;
+      padding: 12px 25px;
+      gap: 10px;
+      background-color: #444df2 !important;
+      color: white !important;
+   }
+
+   @media (max-width: 600px) {
+      width: 100vw;
+      padding: 25px 15px 25px 15px;
+
+      .fs-32 {
+         font-size: 18px;
+      }
+
+      .fs-20 {
+         font-size: 16px;
+      }
+
+      .fs-18 {
+         font-size: 13px;
+      }
+   }
+
+   @media (max-height: 1000px) {
+      height: fit-content;
+   }
+}

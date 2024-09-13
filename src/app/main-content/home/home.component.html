@@ -1,0 +1,28 @@
+<section>
+   <app-header [drawerOpen]="drawerOpen" (drawerToggle)="toggleDrawer()"></app-header>
+   <button class="open-sidebar" (click)="drawer.toggle(); toggleImage()" (mouseover)="hover = true"
+      (mouseout)="hover = false">
+      {{ drawer.opened ? "Workspace-Menü schließen" : "Workspace-Menü öffnen" }}
+      <img [src]="getImageSource()" />
+   </button>
+   <mat-drawer-container class="example-container">
+      <mat-drawer class="sidenav-container" mode="side" #drawer opened>
+         <div class="sidenav">
+            <app-workspace (channelSelected)="onChannelSelected()"></app-workspace>
+         </div>
+      </mat-drawer>
+
+      <mat-drawer-content *ngIf="showMainContent" class="main-content-container"
+         [ngClass]="{ 'padding-left': drawer.opened, 'padding-right': thread.opened }">
+         <div class="main-content">
+            <router-outlet></router-outlet>
+         </div>
+      </mat-drawer-content>
+
+      <mat-drawer class="thread-section" position="end" #thread mode="side">
+         <div class="thread-content">
+            <app-thread></app-thread>
+         </div>
+      </mat-drawer>
+   </mat-drawer-container>
+</section>

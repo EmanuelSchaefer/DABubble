@@ -1,0 +1,36 @@
+<div class="main-ClEn">
+   <div class="header-ClEn">
+      <h2>Channel erstellen</h2>
+      <img src="public/img/workspaceImg/close.png" alt="close-Channel" (click)="closeDialog()" />
+   </div>
+   <p>
+      Channels dienen deinem Team zur Kommunikation. Am besten sollten sie themenbezogen sein #marketing zum Beispiel.
+   </p>
+   <div class="div-ClName">
+      <label>Channel-Name</label>
+      <div>
+         <input [(ngModel)]="channelName" matInput required (input)="checkChannelAvailability()" class="channelName"
+            type="text" placeholder="z.B. Kooperationsprojekte" />
+      </div>
+   </div>
+   <div class="warning-name" [ngClass]="{ 'd-none': !channelIsAvailable() }">
+      <span *ngIf="channelIsAvailable()" class="warning-span">
+         Dieser Channel-Name existiert bereits! Bitte wählen Sie einen anderen Namen.
+      </span>
+   </div>
+   <div class="div-ClBeschreibung">
+      <label>Beschreibung <span>(optional)</span></label>
+      <div>
+         <input [(ngModel)]="channelDescription" class="channelBeschreibung" type="text" placeholder="Dein Text hier" />
+      </div>
+   </div>
+   <div class="div-button">
+      <button (click)="createChannel()" [ngClass]="{ 'disabled-btn': !canCreateChannel() }"
+         [disabled]="!canCreateChannel()">
+         Erstellen
+      </button>
+   </div>
+   <div *ngIf="showSuccessMessage" class="success-message">
+      Channel erfolgreich erstellt!
+   </div>
+</div>

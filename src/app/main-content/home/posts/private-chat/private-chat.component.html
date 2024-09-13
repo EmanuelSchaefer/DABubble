@@ -1,0 +1,19 @@
+<section class="private-chat" *ngIf="otherUserName && currentUserId">
+   <header>
+      <div class="user-info">
+         <img [src]="otherUserProfilePic" alt="{{ otherUserName }}" class="profile-pic" />
+         <h2>{{ otherUserName }}</h2>
+      </div>
+      <!-- <button (click)="closeChat()">Schließen</button> -->
+      <img (click)="closeChat()" src="public/img/icons/close.png" alt="close-icon" class="close-icon" />
+   </header>
+   <div class="body-container">
+      <div #messagesContainer class="posts-container" *ngIf="currentUser$ | async as currentUser">
+         <div *ngFor="let message of messages" class="single-post">
+            <app-private-message-other-posts *ngIf="message.userId !== currentUser?.uid" [message]="message"></app-private-message-other-posts>
+            <app-private-message-my-post *ngIf="message.userId === currentUser?.uid" [message]="message"></app-private-message-my-post>
+         </div>
+      </div>
+   </div>
+   <app-private-message-text-area [otherUserId]="otherUserId"></app-private-message-text-area>
+</section>

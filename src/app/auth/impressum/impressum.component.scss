@@ -1,0 +1,88 @@
+.mainImpressumContainer {
+    overflow: hidden;
+    object-fit: cover;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: rgba(68, 77, 242, 1);
+    font-weight: 700;
+    font-size: 46px;
+}
+
+.divQuelle {
+    display: flex;
+
+    a {
+        margin-left: 5px;
+    }
+}
+
+.loggoLeft {
+    display: flex;
+    align-items: center;
+    width: 306px;
+    height: 70px;
+    margin-top: 25px;
+    margin-left: 50px;
+    gap: 29px;
+
+    p {
+        font-size: 32px;
+        font-weight: 700;
+        color: black;
+        margin-bottom: 0;
+    }
+}
+
+.impressumContent {
+    width: 676.27px;
+    height: 500px;
+    padding: 22px 56px;
+    border-radius: 30px;
+    background-color: white;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    img:hover {
+        cursor: pointer;
+    }
+
+    span {
+        font-weight: 700;
+    }
+
+    h2 {
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 0px;
+        color: rgba(68, 77, 242, 1);
+    }
+
+    @media (max-width: 700px) {
+        width: 398px;
+        height: 522px;
+        padding: 22px 22px;
+
+        .infoDiv,
+        .divQuelle,
+        .dataDiv {
+            font-size: 18px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        width: 360px;
+        height: 500px;
+        padding: 27px 11px;
+    }
+}
+
+.dataDiv {
+    margin-top: 20px;
+}

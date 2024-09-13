@@ -1,0 +1,95 @@
+<mat-card class="register-card">
+   <div class="header">
+      <div class="back-icon" (click)="goBack()">
+         <img src="public/img/icons/goBack.png" alt="Go Back" class="normal-icon" />
+         <img src="public/img/icons/goBack_hover.png" alt="Go Back Hover" class="hover-icon" />
+      </div>
+      <div>
+         <h1>Konto erstellen</h1>
+         <p>Mit deinem Namen und deiner E-Mail-Adresse hast du dein neues DABubble-Konto.</p>
+      </div>
+   </div>
+   <mat-card-content>
+      <form [formGroup]="this.authService.registerForm" class="custom-form" (ngSubmit)="this.onSubmit()">
+         <div class="input-field">
+            <div class="form-field">
+               <div class="input-wrapper">
+                  <img src="public/img/icons/mail.png" alt="Mail" />
+                  <input id="name" type="string" placeholder="Name und Nachname" formControlName="name" required />
+               </div>
+               <div
+                  class="error-message"
+                  *ngIf="
+                     (this.authService.registerForm.get('name')!.invalid && this.authService.registerForm.get('name')!.touched) || this.authService.registerForm.get('name')!.dirty
+                  "
+               >
+                  {{ nameErrorMessage }}
+               </div>
+            </div>
+            <div class="form-field">
+               <div class="input-wrapper">
+                  <img src="public/img/icons/mail.png" alt="Mail" />
+                  <input id="email" type="email" placeholder="beispielname@email.com" formControlName="email" required />
+               </div>
+               <div
+                  class="error-message"
+                  *ngIf="
+                     (this.authService.registerForm.get('email')!.invalid && this.authService.registerForm.get('email')!.touched) ||
+                     this.authService.registerForm.get('email')!.dirty
+                  "
+               >
+                  {{ errorMessage }}
+               </div>
+            </div>
+            <div class="form-field">
+               <div class="input-wrapper">
+                  <img src="public/img/icons/lock.png" alt="Lock" />
+                  <input id="password" type="password" placeholder="Passwort" formControlName="password" required />
+               </div>
+               <div
+                  class="error-message"
+                  *ngIf="
+                     (this.authService.registerForm.get('password')!.invalid && this.authService.registerForm.get('password')!.touched) ||
+                     this.authService.registerForm.get('password')!.dirty
+                  "
+               >
+                  {{ passwordErrorMessage }}
+               </div>
+            </div>
+         </div>
+         <div class="form-field checkbox-field">
+            <div>
+               <input type="checkbox" id="privacy-policy" formControlName="privacyPolicy" required />
+               <label for="privacy-policy" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+                  <img
+                     [src]="
+                        hovering
+                           ? authService.registerForm.get('privacyPolicy')?.value
+                              ? 'public/img/icons/checkbox_hover.png'
+                              : 'public/img/icons/checkbox_unchecked_hover.png'
+                           : authService.registerForm.get('privacyPolicy')?.value
+                           ? 'public/img/icons/checkbox_checked.png'
+                           : 'public/img/icons/checkbox_unchecked.png'
+                     "
+                     class="custom-checkbox"
+                     alt="Checkbox"
+                  />
+                  <span>Ich stimme der <a [routerLink]="['/datenschutz']" class="link">Datenschutzerklärung</a> zu.</span>
+               </label>
+            </div>
+            <div
+               class="error-message"
+               *ngIf="
+                  this.authService.registerForm.get('privacyPolicy')!.invalid &&
+                  (this.authService.registerForm.get('privacyPolicy')!.touched || this.authService.registerForm.get('privacyPolicy')!.dirty)
+               "
+            >
+               {{ privacyPolicyErrorMessage }}
+            </div>
+         </div>
+         <div class="btn-container">
+            <button class="next-btn" type="button" (click)="onButtonClick()" [disabled]="!authService.registerForm.valid">Weiter</button>
+         </div>
+      </form>
+   </mat-card-content>
+</mat-card>

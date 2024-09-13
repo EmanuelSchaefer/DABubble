@@ -1,0 +1,49 @@
+<mat-card class="login-card">
+   <div class="header">
+      <h1>Anmeldung</h1>
+      <p>Wir empfehlen dir, die E-Mail-Adresse zu nutzen, die du bei der Arbeit verwendest.</p>
+   </div>
+   <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="custom-form">
+         <div class="input-field">
+            <div class="form-field">
+               <div class="input-wrapper">
+                  <img src="public/img/icons/mail.png" alt="Mail" />
+                  <input id="email" type="email" placeholder="beispielname@email.com" formControlName="email" required />
+               </div>
+               <div
+                  class="error-message"
+                  *ngIf="(!authService.isGuestLogin() && loginForm.get('email')!.invalid && loginForm.get('email')!.touched) || loginForm.get('email')!.dirty"
+               >
+                  {{ errorMessage }}
+               </div>
+            </div>
+            <div class="form-field">
+               <div class="input-wrapper">
+                  <img src="public/img/icons/lock.png" alt="Lock" />
+                  <input id="password" type="password" placeholder="Passwort" formControlName="password" required />
+               </div>
+               <div
+                  class="error-message"
+                  *ngIf="(!authService.isGuestLogin() && loginForm.get('password')!.invalid && loginForm.get('password')!.touched) || loginForm.get('password')!.dirty"
+               >
+                  {{ passwordErrorMessage }}
+               </div>
+            </div>
+         </div>
+         <div class="forgot-pw-container">
+            <a class="forgot-password" [routerLink]="['/forgotPassword']">Passwort vergessen?</a>
+         </div>
+         <div class="divider-container">
+            <hr class="divider" />
+            <span>ODER</span>
+            <hr class="divider" />
+         </div>
+         <button type="button" class="google-login" (click)="onGoogleSignIn()"><img src="./public/img/icons/google.png" class="icon" /> Anmelden mit Google</button>
+         <div class="btn-container">
+            <button class="login-btn" [disabled]="!loginForm.valid">Anmelden</button>
+            <button class="guest-btn" (click)="onGuestLogin()" mat-button>Gäste-Login</button>
+         </div>
+      </form>
+   </mat-card-content>
+</mat-card>

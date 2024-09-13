@@ -1,0 +1,62 @@
+<section>
+   <header class="forHeaderMobile">
+      <p class="headerP"># {{ currentChannelName }}</p>
+      <img src="public/img/icons/close.png" alt="close-icon" (click)="close()" />
+   </header>
+   <div class="mobileDiv">
+      <div class="nameBContainer">
+         <div class="neighborDiv">
+            <span>Channel-Name</span>
+            <p *ngIf="!isEditingName" (click)="startEditing('name', $event)" [class.disabled]="!isEditAllowed">Bearbeiten</p>
+         </div>
+         <div *ngIf="isEditingName" class="divInputButton">
+            <input type="text" [(ngModel)]="editedChannelName" matInput required (input)="checkChannelAvailability()" placeholder="Neuer Channel Name" />
+            <p class="pButton" (click)="saveChanges('name')">Speichern</p>
+         </div>
+         <p *ngIf="!isEditingName"># {{ currentChannelName }}</p>
+         <div class="warning-name" [ngClass]="{ 'd-none': !channelIsAvailable() }">
+            <span *ngIf="channelIsAvailable()" class="warning-span"> Dieser Channel-Name existiert bereits! Bitte wählen Sie einen anderen Namen. </span>
+         </div>
+      </div>
+      <div class="descriptionBContainer">
+         <div class="neighborDiv">
+            <span>Beschreibung</span>
+            <p *ngIf="!isEditingDescription" (click)="startEditing('description', $event)" [class.disabled]="!isEditAllowed">Bearbeiten</p>
+         </div>
+         <div *ngIf="isEditingDescription" class="divInputButtonTwo">
+            <input type="text" [(ngModel)]="editedChannelDescription" placeholder="Neue Beschreibung" />
+            <p class="pButtonTwo" (click)="saveChanges('description')">Speichern</p>
+         </div>
+         <p *ngIf="!isEditingDescription">{{ currentChannelDescription }}</p>
+         <div class="line"></div>
+         <span>Erstellt von</span>
+         <h3>{{ creatorName }}</h3>
+      </div>
+      <div class="dialog-view-channel-user-list-container">
+         <section class="section-two">
+            <header>
+               <h3><b>Mitglieder</b></h3>
+            </header>
+            <div class="user-container">
+               <div *ngIf="userInChannel && userInChannel.length > 0" class="user-content">
+                  <div *ngFor="let user of userInChannel" class="single-user" (click)="openUserProfile(user)">
+                     <img [src]="user.name === authService.currentUser?.displayName ? authService.currentUser?.photoURL : user.photoUrl" alt="{{ user.name }}" />
+                     <span>{{ user.name }}</span>
+                  </div>
+               </div>
+               <p *ngIf="!userInChannel || userInChannel.length === 0">Keine Mitglieder im Channel vorhanden.</p>
+            </div>
+            <span class="add-btn" (click)="openAddUserDialog()">
+               <img src="public/img/icons/add_member.png" alt="add_member" />
+               <span>Mitglieder hinzufügen</span>
+            </span>
+         </section>
+      </div>
+      <button (click)="leaveChannel()">Channel verlassen</button>
+      <p *ngIf="showSuccessMessage" class="success-message">
+         Channel erfolgreich verlassen!
+         <br />• {{ authService.currentUser?.displayName }}
+      </p>
+      <p *ngIf="showErrorMessage" class="error-message">Sie sind nicht im Channel oder nicht angemeldet.</p>
+   </div>
+</section>

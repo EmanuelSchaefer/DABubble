@@ -1,0 +1,16 @@
+<section>
+   <header>
+      <h3><b>Mitglieder</b></h3>
+      <img (click)="close()" src="public/img/icons/close.png" alt="close" />
+   </header>
+   <div class="user-container">
+      <div *ngFor="let user of userInChannel; let i = index" class="single-user" (click)="openUserProfile(user)">
+         <img [src]="user.name === authService.currentUser?.displayName ? authService.currentUser?.photoURL : user.photoUrl" alt="{{ user.name }}" />
+         <span>{{ user.name }}</span>
+      </div>
+   </div>
+   <span class="add-btn" (click)="openAddUserDialog()">
+      <img src="public/img/icons/add_member.png" alt="add_member" />
+      <span> Mitglieder hinzufügen</span>
+   </span>
+</section>

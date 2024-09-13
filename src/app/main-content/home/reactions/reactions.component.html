@@ -1,0 +1,24 @@
+<section>
+   <div *ngFor="let emote of emotes">
+      <div *ngIf="hasReactions(emote)" class="emote-counter" (click)="toggleUserReaction(emote)"
+         (mouseleave)="hideUsersForReaction()">
+         <img [src]="emote" alt="emote" (mouseover)="showUsersForReaction(emote)" />
+         <p class="counter">{{ getUsersForReaction(emote).length }}</p>
+      </div>
+   </div>
+   <button mat-icon-button [matMenuTriggerFor]="menu">
+      <div class="add-reaction-icon"></div>
+   </button>
+   <mat-menu #menu="matMenu">
+      <div class="menu-content">
+         <div class="menu-row" *ngFor="let emote of emotes">
+            <button mat-menu-item (click)="toggleUserReaction(emote.split('/').pop()!)">
+               <img [src]="emote" alt="emote" width="24" height="24" />
+            </button>
+         </div>
+      </div>
+   </mat-menu>
+   <div *ngIf="hoveredUsers.length" class="hover-users">
+      <p *ngFor="let user of hoveredUsers">• {{ user }}</p>
+   </div>
+</section>

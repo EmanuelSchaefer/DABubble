@@ -1,0 +1,44 @@
+<mat-card class="avatar-card">
+   <mat-card-content>
+      <div class="avatar-selection-container">
+         <div class="header">
+            <div class="back-icon" (click)="goBack()">
+               <img src="public/img/icons/goBack.png" alt="Go Back" class="normal-icon" />
+               <img src="public/img/icons/goBack_hover.png" alt="Go Back Hover" class="hover-icon" />
+            </div>
+            <h1>Wähle deinen Avatar</h1>
+         </div>
+         <div class="avatar-preview">
+            <img [src]="selectedAvatar || defaultAvatar" alt="Avatar" class="avatar-image" />
+         </div>
+         <div class="username">
+            <span>{{ currentUserName }}</span>
+         </div>
+         <div class="text">
+            <span>Aus der Liste wählen</span>
+         </div>
+         <div class="avatar-options">
+            <div *ngFor="let avatar of avatars" (click)="selectAvatar(avatar)" class="avatar-option-container">
+               <img [src]="avatar" class="avatar-option" />
+            </div>
+         </div>
+         <div class="custom-avatar">
+            <span>eigenes Bild verwenden</span>
+            <div class="avatar-container">
+               <label for="avatar-input-file">
+                  <div class="upload-file-wrapper">
+                     <input type="file" id="avatar-input-file" accept="image/*" (change)="onFileChange($event)" />
+                     <span class="file-text">Datei Hochladen</span>
+                  </div>
+               </label>
+            </div>
+         </div>
+      </div>
+   </mat-card-content>
+   <div class="btn-container">
+      <button class="next-btn" (click)="this.authService.onSubmitRegistrationComplete()">Weiter</button>
+   </div>
+</mat-card>
+<div class="success-msg-container" [class.show]="this.authService.isSuccessMessageVisible">
+   <span>Konto erfolgreich erstellt!</span>
+</div>

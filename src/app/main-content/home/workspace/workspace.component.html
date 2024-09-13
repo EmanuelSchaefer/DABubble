@@ -1,0 +1,149 @@
+<div class="main-devspace">
+   <div class="main-Channels">
+      <div class="header-devspace">
+         <img src="public/img/workspaceImg/Workspace logo.png" alt="devspace-Logo" />
+         <h1>Devspace</h1>
+         <!--<img src="/img/workspaceImg/edit_square.png" alt="edit-Img">-->
+      </div>
+
+      <div class="body-devspace">
+         <div class="input-container">
+            <input class="search-input" placeholder="Gehe zu..." type="text" required (input)="search($event)" />
+            <button class="search-btn"><img src="public/img/icons/search-icon.png" alt="lupe-img" /></button>
+         </div>
+         <div class="search-results-container">
+            <div *ngIf="searchResults.length > 0" class="search-results">
+               <strong>Benutzer:</strong>
+               <div *ngIf="filteredUsers.length > 0">
+                  <div *ngFor="let user of filteredUsers" (click)="selectResult(user)">
+                     <span>• {{ user.name }}</span>
+                  </div>
+               </div>
+               <strong>Channel:</strong>
+               <div *ngIf="filteredChannels.length > 0">
+                  <div
+                     *ngFor="let channel of getCombinedChannels()"
+                     (click)="selectChannel(channel.channelId)"
+                     [routerLink]="[channel.channelId]"
+                     [ngClass]="{ 'selected-channel': selectedChannelId === channel.channelId }"
+                  >
+                     <span># {{ channel.channelName }}</span>
+                  </div>
+               </div>
+               <strong>Nachrichten:</strong>
+               <div *ngIf="filteredMessages.length > 0">
+                  <div *ngFor="let message of filteredMessages" (click)="selectMessage(message, message.channelId)" [id]="'message' + message.messageId">
+                     <span>[#{{ message.channelName }}] {{ message.text }}</span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="channel-Header">
+            <div class="left-Channels" (click)="opencloseChannels()">
+               <img
+                  id="defaultImg"
+                  class="drop-down-Img normal-img"
+                  src="public/img/workspaceImg/arrow_drop_down.png"
+                  alt="drop-Img"
+                  [ngClass]="{ 'rotate-right': !channelsListVisible }"
+               />
+               <img
+                  class="drop-down-Img hover-img"
+                  src="public/img/workspaceImg/arrow_drop_down (1).png"
+                  alt="drop-hover-Img"
+                  [ngClass]="{ 'rotate-right': !channelsListVisible }"
+               />
+               <img class="workspaces-img normal-img" src="public/img/workspaceImg/workspaces.png" alt="logo-Img" />
+               <img class="workspaces-img hover-img" src="public/img/workspaceImg/workspaces (1).png" alt="logo-hover-Img" />
+               <h2>Channels</h2>
+            </div>
+            <div class="right-Add">
+               <img class="addImg" src="public/img/workspaceImg/19. add.png" alt="add-Img_One" (click)="openCreateChannelDialog()" />
+            </div>
+         </div>
+         @if(channelsListVisible) {
+         <div class="channelsList" id="channelsList" *ngIf="channelsListVisible">
+            @if(channels) {
+            <div
+               class="channelDiv"
+               *ngFor="let channel of channels"
+               (click)="selectChannel(channel.channelId)"
+               [routerLink]="[channel.channelId]"
+               [ngClass]="{ 'selected-channel': selectedChannelId === channel.channelId }"
+               (mouseenter)="onMouseEnterChannel(channel.channelId!)"
+               (mouseleave)="onMouseLeaveChannel(channel.channelId!)"
+            >
+               <img
+                  [src]="hoveringChannelId === channel.channelId ? 'assets/img/workspaceImg/tag.png' : 'assets/img/workspaceImg/tag (1).png'"
+                  class="imgIcon"
+                  alt="Channel Icon"
+               />
+               <span id="nameChannel">{{ channel.channelName }}</span>
+            </div>
+            }
+         </div>
+         }
+         <div class="footer-channel" (click)="openCreateChannelDialog()" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+            <img [src]="hovering ? 'assets/img/workspaceImg/add_circle_1.png' : 'assets/img/workspaceImg/add_circle.png'" class="addTwoImg" alt="Add Circle" />
+            <p>Channel hinzufügen</p>
+         </div>
+      </div>
+   </div>
+
+   <div class="main-direktnachrichten">
+      <div class="header-direktnachrichten" (click)="opencloseContactMessage()">
+         <img class="normal-img drop-down-Img" src="public/img/workspaceImg/arrow_drop_down.png" alt="drop-Img" [ngClass]="{ 'rotate-right': !contactMessageListVisible }" />
+         <img class="hover-img drop-down-Img" src="public/img/workspaceImg/arrow_drop_down (1).png" [ngClass]="{ 'rotate-right': !contactMessageListVisible }" />
+         <img class="normal-img account-Logo" src="public/img/workspaceImg/account_circle.png" alt="account-Logo" />
+         <img class="hover-img account-Logo" src="public/img/workspaceImg/account_circle (1).png" />
+         <h2>Direktnachrichten</h2>
+      </div>
+      <div class="containerNL">
+         <div class="nachrichtenList" id="nachrichtenList" *ngIf="contactMessageListVisible">
+            <p>Online</p>
+            @for (profile of userService.onlineUser(); track $index) {
+            <div class="divContacts" (click)="selectProfile(profile)" [ngClass]="{ 'selected-profile': selectedProfileName === profile.name }">
+               <div class="image-container">
+                  <img
+                     class="profile-image"
+                     [src]="profile.name === authService.currentUser?.displayName ? authService.currentUser?.photoURL : profile.photoUrl + '?v=' + profile.lastUpdated"
+                  />
+
+                  @if(profile.status == 'online') {
+                  <div class="online-status"></div>
+                  }
+               </div>
+               <span>{{ profile.name }}</span>
+               @if(profile.name === authService.currentUser?.displayName) {
+               <span>(you)</span>
+               }
+            </div>
+            }
+         </div>
+         <div class="nachrichtenList" id="nachrichtenList" *ngIf="contactMessageListVisible">
+            <p>Offline</p>
+            @for (profile of userService.offlineUser(); track $index) {
+            <div class="divContacts" (click)="selectProfile(profile)" [ngClass]="{ 'selected-profile': selectedProfileName === profile.name }">
+               <div class="image-container">
+                  <img
+                     class="profile-image"
+                     [src]="profile.name === authService.currentUser?.displayName ? authService.currentUser?.photoURL : profile.photoUrl + '?v=' + profile.lastUpdated"
+                  />
+
+                  @if(profile.status == 'offline') {
+                  <div class="offline-status"></div>
+                  }
+               </div>
+               <span>{{ profile.name }}</span>
+            </div>
+            }
+         </div>
+      </div>
+   </div>
+
+   <!--
+   <button class="button">
+      <img src="/img/workspaceImg/edit_square (1).png" alt="edit_square-Img">
+   </button>
+   -->
+</div>

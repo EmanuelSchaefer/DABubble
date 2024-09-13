@@ -1,0 +1,34 @@
+<section>
+   <div *ngIf="currentChannel && !isPrivateChatOpen">
+      <header>
+         <div class="channel-name" (click)="openEditChannel()">
+            <p># {{ currentChannel.channelName }}</p>
+            <img src="public/img/icons/dropdown-icon.png" alt="dropdown-icon" />
+         </div>
+         <div class="member-list">
+            <div class="member-images-and-counter" (click)="openChannelUserList($event)">
+               <div *ngFor="let user of currentChannel.userAccess.slice(0, 3); trackBy: trackByUser">
+                  <img class="member-images" [src]="user.photoUrl" alt="avatar" />
+               </div>
+               <span class="member-counter">{{ currentChannel.userAccess.length }}</span>
+            </div>
+            <img class="add_member-button" #openAddUserBtn (click)="openAddUserDialog($event)" src="public/img/icons/add_member.png" alt="add_member" />
+         </div>
+      </header>
+   </div>
+   <div *ngIf="currentChannel && !isPrivateChatOpen" class="body-container">
+      <div #postsContainer class="posts-container" *ngIf="currentUser$ | async as currentUser">
+         <div *ngFor="let message of currentChannel.messages" class="single-post">
+            <div *ngIf="!isPrivateChatOpen || selectedUserId !== message.userId">
+               <app-post-from-others *ngIf="message.userId !== currentUser?.uid" [message]="message"></app-post-from-others>
+               <app-my-posts *ngIf="message.userId === currentUser?.uid" [message]="message"></app-my-posts>
+            </div>
+         </div>
+      </div>
+      <app-textarea #textareaComponent></app-textarea>
+   </div>
+
+   <div class="text-area-style" *ngIf="isPrivateChatOpen" #privateChat>
+      <app-private-chat [otherUserId]="selectedUserId" (close)="closePrivateChat()"></app-private-chat>
+   </div>
+</section>
