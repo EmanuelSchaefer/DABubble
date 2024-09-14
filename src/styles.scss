@@ -9,18 +9,13 @@
 @include mat.core();
 
 // Define the theme object.
-$da-bubble-theme: mat.define-theme(
-   (
-      color: (
-         theme-type: light,
-         primary: mat.$azure-palette,
-         tertiary: mat.$blue-palette,
-      ),
-      density: (
-         scale: 0,
-      ),
-   )
-);
+$da-bubble-theme: mat.define-theme((color: (theme-type: light,
+            primary: mat.$azure-palette,
+            tertiary: mat.$blue-palette,
+         ),
+         density: (scale: 0,
+         ),
+      ));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -132,7 +127,7 @@ body {
       background-color: white;
    }
 
-   .mat-mdc-card-content > :last-child:not(.mat-mdc-card-footer) {
+   .mat-mdc-card-content> :last-child:not(.mat-mdc-card-footer) {
       display: flex;
       flex-direction: column;
       align-items: center;
