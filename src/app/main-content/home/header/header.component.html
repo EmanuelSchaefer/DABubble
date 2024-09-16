@@ -1,17 +1,20 @@
 <header>
    <div *ngIf="isLargeScreen || drawerOpen" class="logo-container">
-      <img class="logo" src="public/img/Logo.png" alt="logo" />
+      <img class="logo" src="/dabubble/browser/public/img/Logo.png" alt="logo" />
       <h4>DABubble</h4>
    </div>
 
    <div *ngIf="!isLargeScreen && !drawerOpen" class="logo-container-mobile">
-      <img (click)="toggleDrawer()" src="public/img/icons/68. Arrow.png" alt="arrow-img" class="arrow-back" />
-      <img src="public/img/icons/15B. Channel name.png" alt="channel-name-img" />
+      <img (click)="toggleDrawer()" src="/dabubble/browser/public/img/icons/68. Arrow.png" alt="arrow-img"
+         class="arrow-back" />
+      <img src="/dabubble/browser/public/img/icons/15B. Channel name.png" alt="channel-name-img" />
    </div>
 
    <div class="input-container">
-      <input class="search-input" placeholder="Code learning durchsuchen" type="text" required (input)="search($event)" />
-      <button class="search-btn"><img src="public/img/icons/search-icon.png" alt="lupe-img" /></button>
+      <input class="search-input" placeholder="Code learning durchsuchen" type="text" required
+         (input)="search($event)" />
+      <button class="search-btn"><img src="/dabubble/browser/public/img/icons/search-icon.png"
+            alt="lupe-img" /></button>
    </div>
    <div class="search-results-container-two">
       <div *ngIf="searchResults.length > 0" class="search-results-two">
@@ -23,18 +26,16 @@
          </div>
          <strong>Channel:</strong>
          <div *ngIf="filteredChannels.length > 0">
-            <div
-               *ngFor="let channel of getCombinedChannels()"
-               (click)="selectChannel(channel.channelId)"
+            <div *ngFor="let channel of getCombinedChannels()" (click)="selectChannel(channel.channelId)"
                [routerLink]="[channel.channelId]"
-               [ngClass]="{ 'selected-channel': selectedChannelId === channel.channelId }"
-            >
+               [ngClass]="{ 'selected-channel': selectedChannelId === channel.channelId }">
                <span># {{ channel.channelName }}</span>
             </div>
          </div>
          <strong>Nachrichten:</strong>
          <div *ngIf="filteredMessages.length > 0">
-            <div *ngFor="let message of filteredMessages" (click)="selectMessage(message)" [id]="'message' + message.messageId">
+            <div *ngFor="let message of filteredMessages" (click)="selectMessage(message)"
+               [id]="'message' + message.messageId">
                <span>[#{{ message.channelName }}] {{ message.text }}</span>
             </div>
          </div>
@@ -42,7 +43,9 @@
    </div>
    <div #profilContainer class="profil-container" (click)="openDialog()">
       <h4>{{ authService.currentUser?.displayName || "Gast" }}</h4>
-      <img class="profil-pic" [src]="authService.currentUser?.photoURL || './public/img/profile-pics-register/avatar_default.png'" alt="profile-pic" />
-      <img class="drop-down-btn" src="public/img/icons/dropdown-icon.png" alt="dropdown-icon" />
+      <img class="profil-pic"
+         [src]="authService.currentUser?.photoURL || './dabubble/browser/public/img/profile-pics-register/avatar_default.png'"
+         alt="profile-pic" />
+      <img class="drop-down-btn" src="/dabubble/browser/public/img/icons/dropdown-icon.png" alt="dropdown-icon" />
    </div>
 </header>

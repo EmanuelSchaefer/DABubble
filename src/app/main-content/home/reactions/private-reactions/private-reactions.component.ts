@@ -23,7 +23,7 @@ export class PrivateReactionsComponent {
 
    hoveredUsers: string[] = [];
    userId: string | null = null;
-   emotes = ["./public/img/emotes/pray-emote.png", "./public/img/emotes/right-emote.png", "./public/img/emotes/rocket-emote.png", "./public/img/emotes/smiley-emote.png"];
+   emotes = ["./dabubble/browser/public/img/emotes/pray-emote.png", "./dabubble/browser/public/img/emotes/right-emote.png", "./dabubble/browser/public/img/emotes/rocket-emote.png", "./dabubble/browser/public/img/emotes/smiley-emote.png"];
 
    ngOnInit() {
       this.authService.getCurrentUser().subscribe((user) => {

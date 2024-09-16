@@ -1,11 +1,12 @@
 <div class="textarea-container">
    <div class="answer-input-container">
-      <textarea #textInput placeholder="Antwort..." cols="30" rows="4" [(ngModel)]="message" (input)="onInput($event)"></textarea>
+      <textarea #textInput placeholder="Antwort..." cols="30" rows="4" [(ngModel)]="message"
+         (input)="onInput($event)"></textarea>
       <div *ngIf="filePreviews.length > 0" class="file-previews-container">
          <div *ngFor="let preview of filePreviews" class="file-preview">
             <img *ngIf="preview.type.startsWith('image/')" [src]="preview.url" alt="Image preview" />
             <a *ngIf="preview.type === 'application/pdf'" [href]="preview.url" target="_blank">
-               <img class="pdf-icon" src="public/img/icons/pdf_icon.png" alt="PDF preview" />
+               <img class="pdf-icon" src="/dabubble/browser/public/img/icons/pdf_icon.png" alt="PDF preview" />
             </a>
             <a class="file-name-link" [href]="preview.url">{{ preview.name }}</a>
             <button (click)="removeFile(preview)">Entfernen</button>
@@ -15,43 +16,47 @@
          <div>
             <input type="file" id="fileInput" (change)="onFileChange($event)" hidden multiple />
             <label for="fileInput" class="icon-wrapper">
-               <img class="ls-icons add-icon normal-img" src="public/img/icons/add-icon.png" alt="Add File" />
-               <img class="ls-icons add-icon hover-img" src="public/img/icons/add reaction (1).png" alt="Add File" />
+               <img class="ls-icons add-icon normal-img" src="/dabubble/browser/public/img/icons/add-icon.png"
+                  alt="Add File" />
+               <img class="ls-icons add-icon hover-img" src="/dabubble/browser/public/img/icons/add reaction (1).png"
+                  alt="Add File" />
             </label>
             <div class="icon-wrapper">
-               <img class="ls-icons smily-icon normal-img" src="public/img/icons/smiley-icon.png" alt="Smiley Icon" />
-               <img class="ls-icons smily-icon hover-img" src="public/img/icons/add reaction (2).png" (click)="toggleEmojiPicker()" alt="Smiley Icon" />
+               <img class="ls-icons smily-icon normal-img" src="/dabubble/browser/public/img/icons/smiley-icon.png"
+                  alt="Smiley Icon" />
+               <img class="ls-icons smily-icon hover-img" src="/dabubble/browser/public/img/icons/add reaction (2).png"
+                  (click)="toggleEmojiPicker()" alt="Smiley Icon" />
             </div>
             <div class="icon-wrapper">
-               <img class="ls-icons email-icon normal-img" src="public/img/icons/email-at-icon.png" alt="Email Icon" />
-               <img class="ls-icons email-icon hover-img" src="public/img/icons/add reaction (3).png" (click)="toggleUserDropdown()" alt="Email Icon" />
+               <img class="ls-icons email-icon normal-img" src="/dabubble/browser/public/img/icons/email-at-icon.png"
+                  alt="Email Icon" />
+               <img class="ls-icons email-icon hover-img" src="/dabubble/browser/public/img/icons/add reaction (3).png"
+                  (click)="toggleUserDropdown()" alt="Email Icon" />
             </div>
             <div *ngIf="showUserDropdown" class="user-dropdown">
                <ul>
-                  <li class="dropdown-item" *ngFor="let user of filteredUsers; let i = index" [class.selected]="i === selectedUserIndex" (click)="addUserToMessage(user)">
+                  <li class="dropdown-item" *ngFor="let user of filteredUsers; let i = index"
+                     [class.selected]="i === selectedUserIndex" (click)="addUserToMessage(user)">
                      {{ user.name }}
                   </li>
                </ul>
             </div>
             <div *ngIf="showChannelDropdown" class="channel-dropdown">
                <ul>
-                  <li
-                     class="dropdown-item"
-                     *ngFor="let channel of filteredChannels; let i = index"
-                     [class.selected]="i === selectedChannelIndex"
-                     (click)="addChannelToMessage(channel)"
-                  >
+                  <li class="dropdown-item" *ngFor="let channel of filteredChannels; let i = index"
+                     [class.selected]="i === selectedChannelIndex" (click)="addChannelToMessage(channel)">
                      {{ channel.channelName }}
                   </li>
                </ul>
             </div>
          </div>
          <div class="send-icon" (click)="triggerSendMessage()">
-            <img src="public/img/icons/Send icon.png" alt="Send Icon" />
+            <img src="/dabubble/browser/public/img/icons/Send icon.png" alt="Send Icon" />
          </div>
       </div>
    </div>
    <div *ngIf="showEmojiPicker">
-      <emoji-mart [style]="{ position: 'absolute', bottom: '125px', left: '100px',}" [i18n]="deTranslations" [darkMode]="false" (emojiSelect)="addEmoji($event)"></emoji-mart>
+      <emoji-mart [style]="{ position: 'absolute', bottom: '125px', left: '100px',}" [i18n]="deTranslations"
+         [darkMode]="false" (emojiSelect)="addEmoji($event)"></emoji-mart>
    </div>
 </div>

@@ -3,7 +3,7 @@
       <header>
          <div class="channel-name" (click)="openEditChannel()">
             <p># {{ currentChannel.channelName }}</p>
-            <img src="public/img/icons/dropdown-icon.png" alt="dropdown-icon" />
+            <img src="/dabubble/browser/public/img/icons/dropdown-icon.png" alt="dropdown-icon" />
          </div>
          <div class="member-list">
             <div class="member-images-and-counter" (click)="openChannelUserList($event)">
@@ -12,7 +12,8 @@
                </div>
                <span class="member-counter">{{ currentChannel.userAccess.length }}</span>
             </div>
-            <img class="add_member-button" #openAddUserBtn (click)="openAddUserDialog($event)" src="public/img/icons/add_member.png" alt="add_member" />
+            <img class="add_member-button" #openAddUserBtn (click)="openAddUserDialog($event)"
+               src="/dabubble/browser/public/img/icons/add_member.png" alt="add_member" />
          </div>
       </header>
    </div>
@@ -20,7 +21,8 @@
       <div #postsContainer class="posts-container" *ngIf="currentUser$ | async as currentUser">
          <div *ngFor="let message of currentChannel.messages" class="single-post">
             <div *ngIf="!isPrivateChatOpen || selectedUserId !== message.userId">
-               <app-post-from-others *ngIf="message.userId !== currentUser?.uid" [message]="message"></app-post-from-others>
+               <app-post-from-others *ngIf="message.userId !== currentUser?.uid"
+                  [message]="message"></app-post-from-others>
                <app-my-posts *ngIf="message.userId === currentUser?.uid" [message]="message"></app-my-posts>
             </div>
          </div>

@@ -1,10 +1,12 @@
 <section #dialogContainer>
    <div class="header">
       <span>Profil</span>
-      <img src="public/img/icons/close.png" alt="close-icon" (click)="closeProfileDialog()" />
+      <img src="/dabubble/browser/public/img/icons/close.png" alt="close-icon" (click)="closeProfileDialog()" />
    </div>
    <div class="image">
-      <img src="{{ data.user.photoURL || user?.photoUrl || './public/img/profile-pics-register/avatar_default.png' }}" alt="profil-pic" />
+      <img
+         src="{{ data.user.photoURL || user?.photoUrl || './dabubble/browser/public/img/profile-pics-register/avatar_default.png' }}"
+         alt="profil-pic" />
    </div>
    <div class="name">
       <div class="username-container">
@@ -15,21 +17,22 @@
       </div>
       <div class="user-status">
          @if(!data.currentUser) {
-         <img *ngIf="user?.status; else offlineImage" src="public/img/icons/{{ user?.status }}.png " alt="online-status" />
+         <img *ngIf="user?.status; else offlineImage" src="/dabubble/browser/public/img/icons/{{ user?.status }}.png "
+            alt="online-status" />
          <ng-template #offlineImage>
-            <img src="public/img/icons/offline.png" alt="Offline Icon" />
+            <img src="/dabubble/browser/public/img/icons/offline.png" alt="Offline Icon" />
          </ng-template>
 
          <span class="fs-20" [class.offline-color]="user?.status == 'offline'">{{ user?.status }}</span>
          }@else {
-         <img src="public/img/icons/online.png" alt="online-status" />
+         <img src="/dabubble/browser/public/img/icons/online.png" alt="online-status" />
          <span class="fs-20">online</span>
          }
       </div>
    </div>
    <div class="email-container">
       <span class="email-icon">
-         <img src="public/img/icons/mail.png" alt="mail-icon" />
+         <img src="/dabubble/browser/public/img/icons/mail.png" alt="mail-icon" />
       </span>
       <div class="email">
          <span class="fs-20">E-Mail_Adresse</span>
@@ -37,6 +40,7 @@
       </div>
    </div>
    @if(!data.currentUser) { @if(authService.currentUser?.displayName !== user?.name) {
-   <button class="send-message-button" (click)="startPrivateChat()"><img src="public/img/icons/mode_comment.png" alt="message-icon" />Nachricht</button>
+   <button class="send-message-button" (click)="startPrivateChat()"><img
+         src="/dabubble/browser/public/img/icons/mode_comment.png" alt="message-icon" />Nachricht</button>
    } }
 </section>

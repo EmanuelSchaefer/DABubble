@@ -191,14 +191,14 @@ section {
       flex-direction: column;
       text-overflow: ellipsis;
 
-      > p {
+      >p {
          text-overflow: ellipsis;
          overflow: hidden;
          white-space: nowrap;
          width: 180px;
       }
 
-      > img {
+      >img {
          width: 90px;
          height: 80px;
       }

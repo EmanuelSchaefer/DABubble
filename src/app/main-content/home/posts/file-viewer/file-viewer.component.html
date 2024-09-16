@@ -1,6 +1,6 @@
 <mat-dialog-content>
    <div class="dialog-header">
-      <img src="public/img/icons/close.png" alt="Close" class="close-icon" (click)="closeDialog()" />
+      <img src="/dabubble/browser/public/img/icons/close.png" alt="Close" class="close-icon" (click)="closeDialog()" />
    </div>
    <ng-container *ngIf="data.fileType.startsWith('image/'); else pdfTemplate">
       <img [src]="data.fileUrl" alt="Full Screen Image" class="img-container" />

@@ -8,7 +8,7 @@
          <div class="input-field">
             <div class="form-field">
                <div class="input-wrapper">
-                  <img src="public/img/icons/mail.png" alt="Mail" />
+                  <img src="/dabubble/browser/public/img/icons/mail.png" alt="Mail" />
                   <input id="email" type="email" placeholder="beispielname@email.com" formControlName="email" required />
                </div>
                <div
@@ -20,7 +20,7 @@
             </div>
             <div class="form-field">
                <div class="input-wrapper">
-                  <img src="public/img/icons/lock.png" alt="Lock" />
+                  <img src="/dabubble/browser/public/img/icons/lock.png" alt="Lock" />
                   <input id="password" type="password" placeholder="Passwort" formControlName="password" required />
                </div>
                <div
@@ -39,7 +39,7 @@
             <span>ODER</span>
             <hr class="divider" />
          </div>
-         <button type="button" class="google-login" (click)="onGoogleSignIn()"><img src="./public/img/icons/google.png" class="icon" /> Anmelden mit Google</button>
+         <button type="button" class="google-login" (click)="onGoogleSignIn()"><img src="./dabubble/browser/public/img/icons/google.png" class="icon" /> Anmelden mit Google</button>
          <div class="btn-container">
             <button class="login-btn" [disabled]="!loginForm.valid">Anmelden</button>
             <button class="guest-btn" (click)="onGuestLogin()" mat-button>Gäste-Login</button>

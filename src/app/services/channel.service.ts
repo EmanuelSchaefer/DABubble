@@ -128,7 +128,7 @@ export class ChannelService {
       }
    }
 
-   async addReaction(channelId: string, messageId: string, emoji: string): Promise<void> {}
+   async addReaction(channelId: string, messageId: string, emoji: string): Promise<void> { }
 
    getAllChannels(): Observable<any[]> {
       const channelsCollection = collection(this.firestore, "channel");

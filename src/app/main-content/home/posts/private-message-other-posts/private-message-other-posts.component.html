@@ -6,12 +6,10 @@
       </div>
       <div>
          <div class="functionsIconsDiv" *ngIf="showIconsDiv">
-            <img
-               src="public/img/icons/add_reaction.png"
-               (mouseenter)="changeImage($event, 'public/img/icons/add reaction.png')"
-               (mouseleave)="resetImage($event, 'public/img/icons/add_reaction.png')"
-               (click)="toggleEmojiPicker()"
-            />
+            <img src="/dabubble/browser/public/img/icons/add_reaction.png"
+               (mouseenter)="changeImage($event, '/dabubble/browser/public/img/icons/add reaction.png')"
+               (mouseleave)="resetImage($event, '/dabubble/browser/public/img/icons/add_reaction.png')"
+               (click)="toggleEmojiPicker()" />
             <div *ngIf="showEmojiPicker" class="overlay" (click)="closeEmojiPicker($event)">
                <div class="emoji-picker">
                   <div *ngFor="let emote of emotes" class="emoji-item" (click)="handleEmoteClick(emote)">
@@ -19,16 +17,16 @@
                   </div>
                </div>
             </div>
-            <img
-               src="public/img/icons/comment.png"
-               (mouseenter)="changeImage($event, 'public/img/icons/Answer.png')"
-               (mouseleave)="resetImage($event, 'public/img/icons/comment.png')"
-               (click)="openThread()"
-            />
+            <img src="/dabubble/browser/public/img/icons/comment.png"
+               (mouseenter)="changeImage($event, '/dabubble/browser/public/img/icons/Answer.png')"
+               (mouseleave)="resetImage($event, '/dabubble/browser/public/img/icons/comment.png')"
+               (click)="openThread()" />
          </div>
          <div class="bgHover">
             <div class="profile">
-               <img [src]="message.profilePicture || './public/img/profile-pics-register/avatar_default.png'" alt="profil-pic" class="profil-pic" />
+               <img
+                  [src]="message.profilePicture || './dabubble/browser/public/img/profile-pics-register/avatar_default.png'"
+                  alt="profil-pic" class="profil-pic" />
                <div class="text-container">
                   <div class="info-container">
                      <span class="name" (click)="selectProfile(message.userName)">{{ message.userName }}</span>
@@ -40,10 +38,11 @@
                      </article>
                      <div *ngIf="message.files && message.files.length > 0" class="file-previews">
                         <div *ngFor="let file of message.files" class="file-preview" (click)="openFile(file)">
-                           <img class="preview-img" *ngIf="file.type.startsWith('image/')" [src]="file.url" alt="Image preview" />
+                           <img class="preview-img" *ngIf="file.type.startsWith('image/')" [src]="file.url"
+                              alt="Image preview" />
                            <a *ngIf="file.type === 'application/pdf'" [href]="file.url" target="_blank">
                               <div class="pdf-file-container">
-                                 <img src="public/img/icons/pdf_icon.png" alt="PDF File" />
+                                 <img src="/dabubble/browser/public/img/icons/pdf_icon.png" alt="PDF File" />
                                  <p>{{ file.name }}</p>
                               </div>
                            </a>
@@ -57,7 +56,8 @@
                      <div class="answers-info" *ngIf="message.answers && message.answers.length > 0">
                         <span class="answer-count" (click)="openThread()">{{ message.answers.length }} Antworten</span>
                      </div>
-                     <span class="reply-time" *ngIf="message.answers && message.answers.length > 0">Letzte Antwort {{ formattedLastAnswerTime }}</span>
+                     <span class="reply-time" *ngIf="message.answers && message.answers.length > 0">Letzte Antwort {{
+                        formattedLastAnswerTime }}</span>
                   </div>
                </div>
             </div>

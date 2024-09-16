@@ -2,10 +2,10 @@
    <section class="text">
       <div class="header">
          <span>Leute hinzufügen</span>
-         <img (click)="closeDialog()" src="public/img/icons/close.png" alt="close_icon" />
+         <img (click)="closeDialog()" src="/dabubble/browser/public/img/icons/close.png" alt="close_icon" />
       </div>
       <div class="hash">
-         <img src="public/img/workspaceImg/tag (1).png" alt="hash" />
+         <img src="/dabubble/browser/public/img/workspaceImg/tag (1).png" alt="hash" />
          <span>{{ currentChannelName }}</span>
       </div>
    </section>
@@ -14,7 +14,7 @@
       <div class="container-for-selected-user">
          <div class="selected-user-container">
             <span class="selected-user"><img [src]="selectedUser.photoUrl" alt="{{ selectedUser.name }}" /> {{ selectedUser.name }}</span>
-            <img class="close-image" (click)="removeSelectedUser()" src="public/img/icons/close.png" alt="close" />
+            <img class="close-image" (click)="removeSelectedUser()" src="/dabubble/browser/public/img/icons/close.png" alt="close" />
          </div>
       </div>
       }@else {

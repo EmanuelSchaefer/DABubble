@@ -1,7 +1,7 @@
 <mat-card [formGroup]="profileForm">
    <div class="header">
       <span>Dein Profil bearbeiten</span>
-      <img (click)="close()" src="public/img/icons/close.png" alt="close-icon" />
+      <img (click)="close()" src="/dabubble/browser/public/img/icons/close.png" alt="close-icon" />
    </div>
    <div class="image">
       <img src="{{ authService.currentUser?.photoURL }}" alt="profil-pic" />
@@ -9,7 +9,7 @@
    </div>
    <div class="name">
       <div class="username-container">
-         <img src="public/img/icons/account_circle.png" alt="" />
+         <img src="/dabubble/browser/public/img/icons/account_circle.png" alt="" />
          <span class="fs-20">Vollständiger Name</span>
       </div>
       <input type="text" class="fs-18" formControlName="username" />
@@ -21,7 +21,7 @@
    </div>
    <div class="email-container">
       <div class="email">
-         <img src="public/img/icons/mail.png" alt="mail-icon" />
+         <img src="/dabubble/browser/public/img/icons/mail.png" alt="mail-icon" />
          <span class="fs-20">E-Mail-Adresse</span>
       </div>
       <div class="input-container">

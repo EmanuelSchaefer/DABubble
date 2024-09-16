@@ -44,7 +44,7 @@ export class PrivateMessageOtherPostsComponent implements OnInit {
 
    showEmojiPicker = false;
 
-   emotes = ["public/img/emotes/pray-emote.png", "public/img/emotes/right-emote.png", "public/img/emotes/rocket-emote.png", "public/img/emotes/smiley-emote.png"];
+   emotes = ["/dabubble/browser/public/img/emotes/pray-emote.png", "/dabubble/browser/public/img/emotes/right-emote.png", "/dabubble/browser/public/img/emotes/rocket-emote.png", "/dabubble/browser/public/img/emotes/smiley-emote.png"];
    isMentioned: boolean = false;
    userId: string | null = null;
 

@@ -9,9 +9,9 @@
    <div>
       <div class="functionsIconsDiv" *ngIf="showIconsDiv">
          <img
-            src="public/img/icons/add_reaction.png"
-            (mouseenter)="changeImage($event, 'public/img/icons/add reaction.png')"
-            (mouseleave)="resetImage($event, 'public/img/icons/add_reaction.png')"
+            src="/dabubble/browser/public/img/icons/add_reaction.png"
+            (mouseenter)="changeImage($event, '/dabubble/browser/public/img/icons/add reaction.png')"
+            (mouseleave)="resetImage($event, '/dabubble/browser/public/img/icons/add_reaction.png')"
             (click)="toggleEmojiPicker()"
          />
          <div *ngIf="showEmojiPicker" class="overlay" (click)="closeEmojiPicker($event)">
@@ -23,16 +23,16 @@
          </div>
          <img
             *ngIf="!isReply"
-            src="public/img/icons/comment.png"
-            (mouseenter)="changeImage($event, 'public/img/icons/Answer.png')"
-            (mouseleave)="resetImage($event, 'public/img/icons/comment.png')"
+            src="/dabubble/browser/public/img/icons/comment.png"
+            (mouseenter)="changeImage($event, '/dabubble/browser/public/img/icons/Answer.png')"
+            (mouseleave)="resetImage($event, '/dabubble/browser/public/img/icons/comment.png')"
             (click)="openThread()"
          />
          <img
             (click)="toggleDiv()"
-            src="public/img/icons/more_vert.png"
-            (mouseenter)="changeImage($event, 'public/img/icons/option.png')"
-            (mouseleave)="resetImage($event, 'public/img/icons/more_vert.png')"
+            src="/dabubble/browser/public/img/icons/more_vert.png"
+            (mouseenter)="changeImage($event, '/dabubble/browser/public/img/icons/option.png')"
+            (mouseleave)="resetImage($event, '/dabubble/browser/public/img/icons/more_vert.png')"
          />
       </div>
       <div class="bearbeitenDiv" [ngClass]="{ 'd-none': isDivHidden }" *ngIf="showIconsDiv">
@@ -61,7 +61,7 @@
                         @if(file.type === 'application/pdf') {
                         <a [href]="file.url" target="_blank">
                            <div class="pdf-file-container">
-                              <img src="./public/img/icons/pdf_icon.png" alt="PDF File" />
+                              <img src="./dabubble/browser/public/img/icons/pdf_icon.png" alt="PDF File" />
                               <p>
                                  {{ file.name }}
                               </p>
@@ -84,7 +84,7 @@
                   </div>
                </div>
             </div>
-            <img class="img-profil" [src]="message.profilePicture || './public/img/profile-pics-register/avatar_default.png'" alt="profil-pic" />
+            <img class="img-profil" [src]="message.profilePicture || './dabubble/browser/public/img/profile-pics-register/avatar_default.png'" alt="profil-pic" />
          </div>
       </div>
    </div>

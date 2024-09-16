@@ -1,8 +1,8 @@
 <mat-card class="register-card">
    <div class="header">
       <div class="back-icon" (click)="goBack()">
-         <img src="public/img/icons/goBack.png" alt="Go Back" class="normal-icon" />
-         <img src="public/img/icons/goBack_hover.png" alt="Go Back Hover" class="hover-icon" />
+         <img src="/dabubble/browser/public/img/icons/goBack.png" alt="Go Back" class="normal-icon" />
+         <img src="/dabubble/browser/public/img/icons/goBack_hover.png" alt="Go Back Hover" class="hover-icon" />
       </div>
       <div>
          <h1>Konto erstellen</h1>
@@ -14,7 +14,7 @@
          <div class="input-field">
             <div class="form-field">
                <div class="input-wrapper">
-                  <img src="public/img/icons/mail.png" alt="Mail" />
+                  <img src="/dabubble/browser/public/img/icons/mail.png" alt="Mail" />
                   <input id="name" type="string" placeholder="Name und Nachname" formControlName="name" required />
                </div>
                <div
@@ -28,7 +28,7 @@
             </div>
             <div class="form-field">
                <div class="input-wrapper">
-                  <img src="public/img/icons/mail.png" alt="Mail" />
+                  <img src="/dabubble/browser/public/img/icons/mail.png" alt="Mail" />
                   <input id="email" type="email" placeholder="beispielname@email.com" formControlName="email" required />
                </div>
                <div
@@ -43,7 +43,7 @@
             </div>
             <div class="form-field">
                <div class="input-wrapper">
-                  <img src="public/img/icons/lock.png" alt="Lock" />
+                  <img src="/dabubble/browser/public/img/icons/lock.png" alt="Lock" />
                   <input id="password" type="password" placeholder="Passwort" formControlName="password" required />
                </div>
                <div
@@ -65,11 +65,11 @@
                      [src]="
                         hovering
                            ? authService.registerForm.get('privacyPolicy')?.value
-                              ? 'public/img/icons/checkbox_hover.png'
-                              : 'public/img/icons/checkbox_unchecked_hover.png'
+                              ? '/dabubble/browser/public/img/icons/checkbox_hover.png'
+                              : '/dabubble/browser/public/img/icons/checkbox_unchecked_hover.png'
                            : authService.registerForm.get('privacyPolicy')?.value
-                           ? 'public/img/icons/checkbox_checked.png'
-                           : 'public/img/icons/checkbox_unchecked.png'
+                           ? '/dabubble/browser/public/img/icons/checkbox_checked.png'
+                           : '/dabubble/browser/public/img/icons/checkbox_unchecked.png'
                      "
                      class="custom-checkbox"
                      alt="Checkbox"

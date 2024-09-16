@@ -1,7 +1,7 @@
 <section>
    <header>
       <h3><b>Mitglieder</b></h3>
-      <img (click)="close()" src="public/img/icons/close.png" alt="close" />
+      <img (click)="close()" src="/dabubble/browser/public/img/icons/close.png" alt="close" />
    </header>
    <div class="user-container">
       <div *ngFor="let user of userInChannel; let i = index" class="single-user" (click)="openUserProfile(user)">
@@ -10,7 +10,7 @@
       </div>
    </div>
    <span class="add-btn" (click)="openAddUserDialog()">
-      <img src="public/img/icons/add_member.png" alt="add_member" />
+      <img src="/dabubble/browser/public/img/icons/add_member.png" alt="add_member" />
       <span> Mitglieder hinzufügen</span>
    </span>
 </section>

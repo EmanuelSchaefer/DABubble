@@ -88,9 +88,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
    getImageSource(): string {
       if (this.hover) {
-         return this.isToggled ? "public/img/workspaceImg/Frame 18.png" : "public/img/workspaceImg/Frame 41.png";
+         return this.isToggled ? "/dabubble/browser/public/img/workspaceImg/Frame 18.png" : "/dabubble/browser/public/img/workspaceImg/Frame 41.png";
       } else {
-         return this.isToggled ? "public/img/workspaceImg/Group 2.png" : "public/img/workspaceImg/Hide-navigation.png";
+         return this.isToggled ? "/dabubble/browser/public/img/workspaceImg/Group 2.png" : "/dabubble/browser/public/img/workspaceImg/Hide-navigation.png";
       }
    }
 

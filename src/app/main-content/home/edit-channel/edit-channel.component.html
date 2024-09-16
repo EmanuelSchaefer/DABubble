@@ -1,7 +1,7 @@
 <section>
    <header class="forHeaderMobile">
       <p class="headerP"># {{ currentChannelName }}</p>
-      <img src="public/img/icons/close.png" alt="close-icon" (click)="close()" />
+      <img src="/dabubble/browser/public/img/icons/close.png" alt="close-icon" (click)="close()" />
    </header>
    <div class="mobileDiv">
       <div class="nameBContainer">
@@ -47,7 +47,7 @@
                <p *ngIf="!userInChannel || userInChannel.length === 0">Keine Mitglieder im Channel vorhanden.</p>
             </div>
             <span class="add-btn" (click)="openAddUserDialog()">
-               <img src="public/img/icons/add_member.png" alt="add_member" />
+               <img src="/dabubble/browser/public/img/icons/add_member.png" alt="add_member" />
                <span>Mitglieder hinzufügen</span>
             </span>
          </section>

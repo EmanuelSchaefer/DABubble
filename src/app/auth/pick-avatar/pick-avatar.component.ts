@@ -18,15 +18,15 @@ export class PickAvatarComponent {
    router = inject(Router);
    authService = inject(AuthenticationService);
 
-   defaultAvatar: string = "./public/img/profile-pics-register/avatar_default.png";
+   defaultAvatar: string = "./dabubble/browser/public/img/profile-pics-register/avatar_default.png";
    selectedAvatar: string | null = null;
    avatars: string[] = [
-      "./public/img/profile-pics-register/avatar_female_1.png",
-      "./public/img/profile-pics-register/avatar_male_1.png",
-      "./public/img/profile-pics-register/avatar_male_2.png",
-      "./public/img/profile-pics-register/avatar_male_3.png",
-      "./public/img/profile-pics-register/avatar_female_2.png",
-      "./public/img/profile-pics-register/avatar_male_4.png",
+      "./dabubble/browser/public/img/profile-pics-register/avatar_female_1.png",
+      "./dabubble/browser/public/img/profile-pics-register/avatar_male_1.png",
+      "./dabubble/browser/public/img/profile-pics-register/avatar_male_2.png",
+      "./dabubble/browser/public/img/profile-pics-register/avatar_male_3.png",
+      "./dabubble/browser/public/img/profile-pics-register/avatar_female_2.png",
+      "./dabubble/browser/public/img/profile-pics-register/avatar_male_4.png",
    ];
    nameValue = this.authService.registerForm.get("name");
    currentUserName = this.nameValue?.value;

@@ -7,7 +7,7 @@
             <ng-template #channelName> # {{ currentChannel.channelName }} </ng-template>
          </p>
       </div>
-      <img src="public/img/icons/close.png" alt="close-icon" (click)="threadService.closeThread()" />
+      <img src="/dabubble/browser/public/img/icons/close.png" alt="close-icon" (click)="threadService.closeThread()" />
    </header>
    <div class="body-container">
       <div #threadContainer class="posts-area">
@@ -15,12 +15,16 @@
             <div class="posts-container" *ngIf="currentUser$ | async as currentUser">
                <div *ngFor="let message of currentChannel.messages">
                   <ng-container *ngIf="message.messageId === messageId">
-                     <app-post-from-others *ngIf="message.userId !== currentUser?.uid" [message]="message" [isReply]="false"></app-post-from-others>
-                     <app-my-posts *ngIf="message.userId === currentUser?.uid" [message]="message" [isReply]="false"></app-my-posts>
+                     <app-post-from-others *ngIf="message.userId !== currentUser?.uid" [message]="message"
+                        [isReply]="false"></app-post-from-others>
+                     <app-my-posts *ngIf="message.userId === currentUser?.uid" [message]="message"
+                        [isReply]="false"></app-my-posts>
 
                      <div *ngFor="let answer of message.answers ?? []" class="single-post">
-                        <app-post-from-others *ngIf="answer.userId !== currentUser?.uid" [message]="answer" [isReply]="true"></app-post-from-others>
-                        <app-my-posts *ngIf="answer.userId === currentUser?.uid" [message]="answer" [isReply]="true"></app-my-posts>
+                        <app-post-from-others *ngIf="answer.userId !== currentUser?.uid" [message]="answer"
+                           [isReply]="true"></app-post-from-others>
+                        <app-my-posts *ngIf="answer.userId === currentUser?.uid" [message]="answer"
+                           [isReply]="true"></app-my-posts>
                      </div>
                   </ng-container>
                </div>
@@ -30,28 +34,29 @@
          <div *ngIf="privateChatId !== ''">
             <div class="posts-container" *ngIf="currentUser$ | async as currentUser">
                <ng-container *ngIf="selectedMessage">
-                  <app-private-message-other-posts *ngIf="selectedMessage.userId !== currentUser?.uid" [message]="selectedMessage" [isThreadContext]="true">
+                  <app-private-message-other-posts *ngIf="selectedMessage.userId !== currentUser?.uid"
+                     [message]="selectedMessage" [isThreadContext]="true">
                   </app-private-message-other-posts>
-                  <app-private-message-my-post
-                     *ngIf="selectedMessage.userId === currentUser?.uid"
-                     [message]="selectedMessage"
-                     [privateChatId]="privateChatId"
-                     [isThreadContext]="true"
-                  >
+                  <app-private-message-my-post *ngIf="selectedMessage.userId === currentUser?.uid"
+                     [message]="selectedMessage" [privateChatId]="privateChatId" [isThreadContext]="true">
                   </app-private-message-my-post>
                </ng-container>
 
                <ng-container *ngFor="let answer of messageReplies">
                   <div class="single-post">
-                     <app-private-message-other-posts [isThreadContext]="true" *ngIf="answer.userId !== currentUser?.uid" [message]="answer"> </app-private-message-other-posts>
-                     <app-private-message-my-post [isThreadContext]="true" *ngIf="answer.userId === currentUser?.uid" [message]="answer" [privateChatId]="privateChatId">
+                     <app-private-message-other-posts [isThreadContext]="true"
+                        *ngIf="answer.userId !== currentUser?.uid" [message]="answer">
+                     </app-private-message-other-posts>
+                     <app-private-message-my-post [isThreadContext]="true" *ngIf="answer.userId === currentUser?.uid"
+                        [message]="answer" [privateChatId]="privateChatId">
                      </app-private-message-my-post>
                   </div>
                </ng-container>
             </div>
          </div>
       </div>
-      <app-thread-textarea [threadFilePreviews]="threadFilePreviews" [messageId]="messageId" [privateChatId]="privateChatId" (sendMessage)="addReply($event)">
+      <app-thread-textarea [threadFilePreviews]="threadFilePreviews" [messageId]="messageId"
+         [privateChatId]="privateChatId" (sendMessage)="addReply($event)">
       </app-thread-textarea>
    </div>
 </section>

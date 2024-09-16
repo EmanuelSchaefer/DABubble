@@ -5,7 +5,7 @@
          <h2>{{ otherUserName }}</h2>
       </div>
       <!-- <button (click)="closeChat()">Schließen</button> -->
-      <img (click)="closeChat()" src="public/img/icons/close.png" alt="close-icon" class="close-icon" />
+      <img (click)="closeChat()" src="/dabubble/browser/public/img/icons/close.png" alt="close-icon" class="close-icon" />
    </header>
    <div class="body-container">
       <div #messagesContainer class="posts-container" *ngIf="currentUser$ | async as currentUser">

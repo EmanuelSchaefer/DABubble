@@ -34,7 +34,7 @@ export class PostFromOthersComponent implements OnInit {
    route = inject(ActivatedRoute);
    threadService = inject(ThreadService);
    showEmojiPicker = false;
-   emotes = ["public/img/emotes/pray-emote.png", "public/img/emotes/right-emote.png", "public/img/emotes/rocket-emote.png", "public/img/emotes/smiley-emote.png"];
+   emotes = ["/dabubble/browser/public/img/emotes/pray-emote.png", "/dabubble/browser/public/img/emotes/right-emote.png", "/dabubble/browser/public/img/emotes/rocket-emote.png", "/dabubble/browser/public/img/emotes/smiley-emote.png"];
    channelService = inject(ChannelService);
    isMentioned: boolean = false;
    userId: string | null = null;
