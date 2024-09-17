@@ -61,7 +61,7 @@
                         @if(file.type === 'application/pdf') {
                         <a [href]="file.url" target="_blank">
                            <div class="pdf-file-container">
-                              <img src="./dabubble/browser/public/img/icons/pdf_icon.png" alt="PDF File" />
+                              <img src="/dabubble/browser/public/img/icons/pdf_icon.png" alt="PDF File" />
                               <p>
                                  {{ file.name }}
                               </p>
@@ -84,7 +84,7 @@
                   </div>
                </div>
             </div>
-            <img class="img-profil" [src]="message.profilePicture || './dabubble/browser/public/img/profile-pics-register/avatar_default.png'" alt="profil-pic" />
+            <img class="img-profil" [src]="message.profilePicture || '/dabubble/browser/public/img/profile-pics-register/avatar_default.png'" alt="profil-pic" />
          </div>
       </div>
    </div>

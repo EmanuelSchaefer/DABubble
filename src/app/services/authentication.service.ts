@@ -42,7 +42,7 @@ export class AuthenticationService {
    avatar: string = "";
    isSuccessMessageVisible = false;
 
-   defaultGuestPhotoUrl: string = "./dabubble/browser/public/img/profile-pics-register/avatar_default.png";
+   defaultGuestPhotoUrl: string = "/dabubble/browser/public/img/profile-pics-register/avatar_default.png";
 
    async onSubmitRegistrationComplete() {
       const emailControl = this.registerForm.get("email");

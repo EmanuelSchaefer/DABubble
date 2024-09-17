@@ -44,7 +44,7 @@
    <div #profilContainer class="profil-container" (click)="openDialog()">
       <h4>{{ authService.currentUser?.displayName || "Gast" }}</h4>
       <img class="profil-pic"
-         [src]="authService.currentUser?.photoURL || './dabubble/browser/public/img/profile-pics-register/avatar_default.png'"
+         [src]="authService.currentUser?.photoURL || '/dabubble/browser/public/img/profile-pics-register/avatar_default.png'"
          alt="profile-pic" />
       <img class="drop-down-btn" src="/dabubble/browser/public/img/icons/dropdown-icon.png" alt="dropdown-icon" />
    </div>
