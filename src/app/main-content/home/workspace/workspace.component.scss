@@ -497,6 +497,16 @@
    }
 }
 
+@media (max-height: 800px) {
+   .main-Channels {
+      height: 40%;
+   }
+
+   .main-direktnachrichten {
+      height: 60%;
+   }
+}
+
 @media (min-width: 1000px) {
    .search-results-container {
       display: none;
